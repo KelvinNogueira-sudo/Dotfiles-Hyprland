@@ -1,0 +1,150 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "source": "arch",
+    "padding": {
+      "top": 2,
+      "left": 2
+    },
+    "color": {
+      "1": "red",
+      "2": "light_red" //It's darker actualy
+    }
+  },
+  "display": {
+    "separator": "",
+    "constants": [
+      "───────────────────"
+    ],
+    "key": {
+      "width": 4
+    }
+  },
+  
+  "modules": [
+    {
+      "type":"title",
+      "key":" ",
+      "keyColor": "red",
+      "format": "{user-name}@{host-name}"
+    },
+    {
+      "type": "custom",
+      "format": "{#90}┌{$1} {##b83529}Hardware {#90}{$1}┐{#}"
+    },
+    {
+      "type": "cpu",
+      "key": "",
+      "keyColor": "black"
+    },
+    {
+      "type": "gpu",
+      "key": "󰢮",
+      "keyColor": "black"
+    },
+    {
+      "type": "memory",
+      "key": "",
+      "keyColor": "black",
+      "format":
+        "{percentage-bar} {used} \/ {total}",
+        "percent": {
+          "type": ["bar"]
+        } 
+    },
+    {
+      "type": "disk",
+      "key": "",
+      "keyColor": "black",
+      "format":
+        "{size-percentage-bar} {size-used} / {size-total} [{filesystem}]",
+        "percent": {
+          "type": ["bar"]
+        }
+    },
+    {
+      "type": "battery",
+      "key": "",
+      "keyColor": "black"
+    },
+    {
+      "type": "custom",
+      "format": "{#90}└{$1}──────────{$1}┘{#}"
+    },
+    
+    {
+      "type": "custom",
+      "format": "{#90}┌{$1} {##b83529}Software {#90}{$1}┐{#}"
+    },
+    {
+      "type": "os",
+      "key": "",
+      "keyColor": "black"
+    },
+    {
+      "type": "kernel",
+      "key": "",
+      "keyColor": "black"
+    },
+    {
+    "type": "terminal",
+    "key": "",
+    "keyColor": "black"
+    },
+    {
+      "type": "shell",
+      "key": "",
+      "keyColor": "black"
+    },
+    {
+      "type": "packages",
+      "key": "",
+      "keyColor": "black"
+    },
+    {
+    "type": "wm",
+    "key": "",
+    "keyColor": "black"
+    },
+    {
+      "type": "custom",
+      "format": "{#90}└{$1}──────────{$1}┘{#}"
+    },
+
+    {
+      "type": "custom",
+      "format": "{#90}┌{$1} {##b83529}Miscellaneous {#90}{$1}┐{#}"
+    },
+    {
+      "type":"cursor",
+      "key": "󰇀",
+      "keyColor": "black"
+    },
+    {
+      "type":"font",
+      "key": "",
+      "keyColor": "black"
+    },
+    {
+      "type":"terminalfont",
+      "key": "",
+      "keyColor": "black"
+    },
+    {
+      "type":"uptime",
+      "key": "󱦟 ",
+      "keyColor": "black"
+    },
+    {
+      "type": "custom",
+      "format": "{#90}└{$1}───────────────{$1}┘{#}"
+    },
+    "break",
+    
+    {
+			"type": "custom",
+			"format": "  \u001b[1m\u001b[31m󰌪  \u001b[1m\u001b[32m󰌪  \u001b[1m\u001b[33m󰌪  \u001b[1m\u001b[34m󰌪  \u001b[1m\u001b[35m󰌪  \u001b[1m\u001b[36m󰌪  \u001b[1m\u001b[37m󰌪  \u001b[1m\u001b[30m󰌪       \u001b[1m\u001b[91m󰌪  \u001b[1m\u001b[92m󰌪  \u001b[1m\u001b[93m󰌪  \u001b[1m\u001b[94m󰌪  \u001b[1m\u001b[95m󰌪  \u001b[1m\u001b[96m󰌪  \u001b[1m\u001b[97m󰌪  \u001b[1m\u001b[90m󰌪    "
+		}
+  ]
+}

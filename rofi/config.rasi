@@ -1,0 +1,105 @@
+        /* --- Configuration --- */
+
+configuration{
+    display-dmenu: "WallpaperVader.xcf";
+    drun-display-format: "{name}"; 
+}
+
+*{
+    font: "JetBrainsMono Nerd Font 12";
+    border:             0;
+    margin:             0;
+    padding:            0;
+    spacing:            0;
+}
+
+window{
+    background-color:   #303131d3;
+    border:             2px solid;
+    border-color:       #d52121;
+    border-radius:      20px;
+    padding:            10px;
+    width:              560px;
+    location:           center;
+    fixed-height:       false;
+    y-offset:           -40px;
+}
+
+mainbox {
+    background-color:   transparent;
+    spacing:            6px;
+    padding:            0;
+}
+
+inputbar {
+    background-color:   transparent;
+    border:             1px solid;
+    border-color:       #d52121;
+    border-radius:      20px;
+    padding:            12px 10px;
+    spacing:            8px;
+    children:           [ prompt, entry ];
+}
+
+prompt {
+    enabled: false;
+}
+
+entry {
+    background-color:   transparent;
+    font:               "JetBrainsMono Nerd Font Bold 12";
+    text-color:         rgb(244, 244, 244);
+    placeholder:        "Search";
+    placeholder-color:  rgb(168, 164, 164);
+    vertical-align:     0.5;
+    expand:             true;
+}
+
+listview {
+    background-color:   transparent;
+    spacing:            2px;
+    padding:            4px 0 0 0;
+    lines:              8;
+    cycle:              false;
+    dynamic:            true;
+    scrollbar:          false;
+    fixed-height:       false;
+    reverse: false;
+}
+
+element {
+    background-color:   transparent;
+    border-radius:      15px;
+    padding:            11px 16px;
+    spacing:            10px;
+    orientation:        horizontal;
+    children:           [ element-icon, element-text ];
+}
+
+element normal.normal {
+    background-color:   transparent;
+    text-color:         #dfe3e7;
+}
+
+element selected.normal {
+    background-color:   #f85656;
+    text-color:         #00344b;
+}
+
+element alternate.normal {
+    background-color:   transparent;
+    text-color:         #dfe3e7;
+}
+
+element-icon {
+    background-color:   transparent;
+    size:               26px;
+    vertical-align:     0.5;
+}
+
+element-text {
+    background-color:   transparent;
+    text-color:         inherit;
+    vertical-align:     0.5;
+    expand:             true;
+}

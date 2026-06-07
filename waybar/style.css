@@ -1,0 +1,270 @@
+* {
+		/* === Global-Settings === */
+
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 15px;
+    font-weight: normal;
+    min-height: 0px;
+}
+		/* === Waybar === */
+
+    window#waybar {
+		background-color: transparent;
+  		color: #ffffff;
+  		transition-property: background-color;
+  		transition-duration: 0.5s;
+		border-radius: 0px;
+		transition-duration: 0.5s;
+		margin: 0px 0px;
+    }
+
+    window#waybar.empty #window {
+		background: transparent;
+		background-color: transparent;
+		border: none;
+		border-radius: 0;
+		color: transparent;
+		padding: 0;
+		margin: 0;
+    }
+
+	#left1 {
+  		border-radius: 9px;
+  		opacity: 0.95;
+ 		background-color: alpha(#14141e, 0.9);
+  		margin: 3px 1px 3px 1px;
+		padding: 1px 2px 1px;
+	}
+
+		/* === Modules === */
+
+    .modules-center {
+		color: #ffffff;
+		border-radius: 9px;
+		opacity: 0.95;
+		background-color: alpha(#14141e, 0.9);
+		margin: 3px 1px 3px 1px;
+		padding: 1px 2px 1px;
+	}
+
+    .modules-right {
+		color: #ffffff;
+		border-radius: 9px;
+		opacity: 0.95;
+		background-color: alpha(#14141e, 0.9);
+		margin: 3px 1px 3px 1px;
+		padding: 1px 2px 1px;
+    }
+	
+    	/* === Workspaces === */
+
+    #workspaces {
+		border-radius: 9px;
+		background-color: alpha(#14141e, 0.9);
+		opacity: 0.95;
+		margin: 3px 1px;
+		padding: 2px 4px 2px;
+    }
+
+    #workspaces button {
+		padding: 0px 6px;
+		margin: 1px 2px;
+		border-radius: 2px;
+		background-color: alpha(#6b6b6c, 0.5);
+		color: #ffffff; 
+		transition: all 0.3s ease-in-out;
+		opacity: 0.95;
+    }
+
+    #workspaces button.active {
+		color: #7984a4;
+		border: 1px solid alpha(#ff0101, 0.8);
+		background-color: alpha(#14141e, 0.9);
+		border-radius: 2px;
+		opacity: 1.0;
+		transition: all 0.3s ease-in-out;
+    }
+
+    #workspaces button:hover {
+		color: #3e4149;
+		border-radius: 2px;
+		opacity: 0.9;
+		background: linear-gradient(180deg, #14141e 75%, #c00707);
+    }
+
+		/* === General Modules === */
+
+    #tray,
+	#tooltip,
+    #group-tray-expander,
+    #clock,
+    #battery,
+    #network,
+    #backlight,
+    #bluetooth,
+    #pulseaudio,
+    #custom-weather,
+    #window,
+    #power-profiles-daemon,
+    #custom-notification,
+    #custom-updates,
+	#custom-powerswingdemo cannot be resolved to a type
+
+		/* === Center Module === */
+
+    #clock:hover,
+
+		/* === Right Modules === */
+
+    #custom-expand-icon:hover,
+	#tray:hover,
+	#network {
+		min-width: 20px;
+		margin-left: 3px;
+		margin-right: 3px;
+		font-size: 18px;
+		padding-bottom: 0px;
+    }
+	#bluetooth {
+		min-width: 20px;
+		margin-left: 3px;
+		margin-right: 3px;
+		font-size: 18px;
+		padding-bottom: 0px;
+    }
+	#backlight:hover,
+	#battery {
+		min-width: 20px;
+		margin-left: 3px;
+		margin-right: 3px;
+		font-size: 16px;
+		padding-bottom: 0px;
+    }
+	#power-profiles-daemon {
+		min-width: 20px;
+		margin-left: 3px;
+		margin-right: 3px;
+		font-size: 18px;
+		padding-bottom: 0px;
+    }
+	#pulseaudio:hover {
+		border-radius: 2px;
+		margin-left: 5px;
+		margin-right: 5px;
+		opacity: 0.9;
+    }
+	#custom-weather:hover,
+	#temperature:hover,
+
+		/* === Left Modules === */
+	
+	#custom-power {
+		color: #c30707;
+		min-width: 20px;
+		border-radius: 9px;
+		font-size: 15px;
+		padding-bottom: 0px;
+    }
+	#custom-updates {
+        background-color: transparent;
+        color: #268b01;
+        font-weight: bold;
+        padding: 0 10px;
+    }
+	#custom-notification {
+		color: #eebf17;
+		min-width: 12px;
+		margin-left: 10px;
+		margin-right: 0;
+		font-size: 15px;
+		padding-bottom: 0px;
+
+    }
+
+	#window:hover,
+	#mpris {
+		border-radius: 9px;
+		opacity: 0.95;
+		background-color: alpha(#14141e, 0.9);
+		margin: 3px 1px 3px 1px;
+		padding: 1px 2px 1px;
+	}
+
+		/* === Specific Modules === */
+	/* -> Remove me to descomment this block
+    #group-tray-expander {
+		background-color: alpha(@background, 0.9);
+		color: @foreground;
+    }
+		
+   	#tray {
+		background-color: @background;
+    }
+
+    #tray > .passive {
+		-gtk-icon-effect: dim;
+    }
+
+    #tray > .needs-attention {
+		-gtk-icon-effect: highlight;
+		background-color: @transparent;
+    }
+	Remove me to descomment this block -> */
+
+    .hidden {
+		opacity: 0;
+    }
+    
+    #custom-notification-silencing.active {
+		color: #a55555;
+    }
+	
+    #tooltip {
+		padding: 4px;
+ 		border-radius: 8px;
+ 		box-shadow: 1px 1px 3px 1px #131313;
+ 		font-size: 10px;
+		opacity: 1;
+    }
+
+    tooltip label {
+		font-weight: normal;
+    }
+
+	/* === Specific animation Module === */
+
+	/* Update Animation Module*/
+    #custom-updates.has-updates {
+    	color: #db331d;
+    	animation: blink 2s infinite;
+	}
+
+	@keyframes blink {
+    	to {
+        	opacity: 0.5;
+    	}
+	}
+
+	#custom-updates.updated {
+    	color: #a6e3a1; 
+	}
+
+	/* === Battery Animation Module === */
+    #battery.warning {
+		color: #db331d;
+    }
+
+    @keyframes blink2 {
+		to {
+    		color: #f53c3c;
+  		}	
+	}
+
+    #battery.critical:not(.charging) {
+		color: #fa4300;
+		animation-name: blink2;
+		animation-duration: 0.5s;
+		animation-timing-function: steps(12);
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+    }
