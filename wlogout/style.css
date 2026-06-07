@@ -1,0 +1,68 @@
+*
+
+		/* --- Global Config ---*/
+
+{
+	font-family: JetBrainsMono Medium;
+	font-size: 16;
+	color: #9e9c9c;
+	background-image: none;
+	box-shadow: none;
+	
+}
+
+		/* --- Window Config ---*/
+
+window {
+	background-color: rgba(61, 60, 60, 0.9);
+}
+
+		/* --- Buttons Config ---*/
+
+button {
+	border-radius: 25px;
+    border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	margin: 10px;
+
+	background-color: #1E1E1E;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20%;
+
+	animation: gradient_f 20s ease-in infinite;
+	transition: all 0.3s ease-in;
+}
+
+button:focus {
+    background-size : 20%;
+	box-shadow: 0 0 10px 3px rgba(0,0,0,.4);
+    background-color: #b33434;
+    transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
+	box-shadow: none;
+	min-width: 100px;
+    min-height: 100px;
+}
+
+		/* --- Icons Config ---*/
+
+#lock {
+    background-image: image(url("./icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("./icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("./icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("./icons/power.png"));
+}
+
+#reboot {
+    background-image: image(url("./icons/restart.png"));
+}
