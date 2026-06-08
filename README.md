@@ -15,6 +15,6 @@ This repository contains the dotfiles for Arch Linux and Hyprland.
 - [ ] Config Shell (zsh 5.9)
 - [X] Customize Terminal (kitty)
 - [X] Customize Fastfetch
-- [ ] Config hyprland.lua
+- [X] Config hyprland.lua
   - [X] Bind to Screenshot
-  - [ ] Share screen with HDMI 
+  - [X] Share screen with HDMI 
