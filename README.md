@@ -17,4 +17,5 @@ This repository contains the dotfiles for Arch Linux and Hyprland.
 - [X] Customize Fastfetch
 - [X] Config hyprland.lua
   - [X] Bind to Screenshot
-  - [X] Share screen with HDMI 
+  - [X] Share screen with HDMI
+  - [ ] Share screen in Discord
