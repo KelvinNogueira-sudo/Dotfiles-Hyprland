@@ -75,6 +75,11 @@ hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 --   / /__/ _ \/ _ \/  '_/ / _ `/ _ \/ _  / / _// -_) / / 
 --  /____/\___/\___/_/\_\  \_,_/_//_/\_,_/ /_/  \__/_/_/  
 
+-- Config
+
+hl.config({ dwindle   = { preserve_split = true }})
+hl.config({ master    = { new_status = "master" }})
+hl.config({ scrolling = { fullscreen_on_one_column = true }})
 hl.config({
     general = {
         gaps_in  = 5,
@@ -82,7 +87,7 @@ hl.config({
 
         border_size = 2,
 	
-	-- Color Border --
+	-- Color Border
         col = {
             active_border   = { colors = {"rgba(185, 12, 12, 0.88)"}, angle = 45 },
             inactive_border = "rgba(595959aa)",
@@ -122,7 +127,8 @@ hl.config({
     },
 })
 
--- Curves and Animations
+-- Curves
+
 hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
 hl.curve("easeInOutCubic", { type = "bezier", points = { {0.65, 0.05}, {0.36, 1}    } })
 hl.curve("linear",         { type = "bezier", points = { {0, 0},       {1, 1}       } })
@@ -130,41 +136,33 @@ hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}
 hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
 hl.curve("workspaceBounce",{ type = "bezier", points = { {0.20, 0.86}, {0.30, 1.035}}})
 
--- Default Springs
-hl.curve("easy",           { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+-- Springs
 
-hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows",       enabled = true,  speed = 4.79, spring = "easy" })
-hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 4.1,  bezier = "easeOutQuint",         style = "popin 85%" })
-hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.49, bezier = "linear",       style = "popin 87%" })
+hl.curve("easy",    { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+
+-- Animations
+
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, spring = "winIn", style = "popin 85%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, spring = "winOut", style = "popin 85%" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 3, spring = "winMove", style = "slide" })
+
+hl.animation({ leaf = "fade",          enabled = true,  speed = 3.03, bezier = "quick" })
 hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 1.73, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.46, bezier = "almostLinear" })
-hl.animation({ leaf = "fade",          enabled = true,  speed = 3.03, bezier = "quick" })
+
 hl.animation({ leaf = "layers",        enabled = true,  speed = 3.81, bezier = "easeOutQuint" })
 hl.animation({ leaf = "layersIn",      enabled = true,  speed = 4,    bezier = "easeOutQuint", style = "fade" })
 hl.animation({ leaf = "layersOut",     enabled = true,  speed = 1.5,  bezier = "linear",       style = "fade" })
+
 hl.animation({ leaf = "fadeLayersIn",  enabled = true,  speed = 1.79, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true,  speed = 1.39, bezier = "almostLinear" })
+
+hl.animation({ leaf = "border",        enabled = true,  speed = 5.39, bezier = "easeOutQuint" })
+
 hl.animation({ leaf = "workspaces",    enabled = true,  speed = 3,    bezier = "workspaceBounce", style = "slide" })
+
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
 
-hl.config({
-    dwindle = {
-        preserve_split = true, -- You probably want this
-    },
-})
-
-hl.config({
-    master = {
-        new_status = "master",
-    },
-})
-
-hl.config({
-    scrolling = {
-        fullscreen_on_one_column = true,
-    },
-})
 
 
 --     __  ____        
@@ -199,21 +197,14 @@ hl.config({
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
         touchpad = {
-            natural_scroll = false,
-        },
-    },
+            natural_scroll = false
+        }
+    }
 })
 
-hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace"
-})
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 
-hl.device({
-    name        = "epic-mouse-v1",
-    sensitivity = -0.5,
-})
+hl.device({ name = "epic-mouse-v1", sensitivity = -0.5 })
 
 
 --     __ __         __   _         ___             
@@ -227,16 +218,23 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local META = "SUPER + SHIFT_L" -- Sets "Copilot" key as Meta Key
 local closeWindowBind = hl.bind("ALT + F4", hl.dsp.window.close())
 
--- Principal Bindings
-hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal))
-hl.bind("XF86Launch8", hl.dsp.exec_cmd("wlogout -b 5 --margin-left=400px --margin-right=400px --margin-top=400px --margin-bottom=400px"))
-hl.bind("XF86Launch7", hl.dsp.exec_cmd(fileManager)) -- Tecla da MiniTela para Abrir FileManager
+-- Specific Keys
 hl.bind(META, hl.dsp.exec_cmd(browser))
+hl.bind("XF86Launch7", hl.dsp.exec_cmd(fileManager)) -- Tecla da MiniTela para Abrir FileManager
+hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output -m active -o /home/kelvin/Imagens/Screenshots"))
+hl.bind("XF86Launch8", hl.dsp.exec_cmd("wlogout -b 5 --margin-left=400px --margin-right=400px --margin-top=400px --margin-bottom=400px"))
+
+-- Principal Keybinds
+hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + " .. "ALT" .. " + F", function()
+    hl.dispatch(hl.dsp.window.float({ action = "set" }))
+    hl.dispatch(hl.dsp.window.resize({ x = 900, y = 600 }))
+    hl.dispatch(hl.dsp.window.center())
+end)
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
-hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output -m active -o /home/kelvin/Imagens/Screenshots"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -256,7 +254,7 @@ end
 hl.bind(mainMod .. " + BACKSPACE", hl.dsp.exec_cmd("command killall waybar || waybar"))
 
 -- Special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + S",           hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + CONTROL + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
@@ -272,8 +270,8 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl s 5%+"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl s 5%-"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl s 5%+"),                            { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl s 5%-"),                            { locked = true, repeating = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
@@ -297,8 +295,8 @@ local suppressMaximizeRule = hl.window_rule({
 })
 -- suppressMaximizeRule:set_enabled(false)
 
-hl.window_rule({ match = { class = "code" }, opacity = "0.85" })
-hl.window_rule({ match = { class = "thunar"}, opacity = "0.85" })
+hl.window_rule({ match = { class = "code" }, opacity = "0.80" })
+hl.window_rule({ match = { class = "thunar"}, opacity = "0.80" })
 hl.window_rule({ match = { class = "brave-browser" }, opacity = "0.95" })
 hl.window_rule({ match = { class = "^$", title = "^$", xwayland = true, float = true, fullscreen = false, pin = false }, no_focus = true })
 hl.window_rule({ match = { class = "hyprland-run" }, move = "20 monitor_h-120", float = true })
