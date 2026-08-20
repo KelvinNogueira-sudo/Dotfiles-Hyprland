@@ -29,9 +29,10 @@
     }
 
 	#left1 {
-  		border-radius: 9px;
+  		border-radius: 6px;
   		opacity: 0.95;
- 		background-color: alpha(#14141e, 0.9);
+ 		background-color: alpha(#000000, 0.9);
+		box-shadow: 0px 2px 1px #aa0707;
   		margin: 3px 1px 3px 1px;
 		padding: 1px 2px 1px;
 	}
@@ -40,18 +41,20 @@
 
     .modules-center {
 		color: #ffffff;
-		border-radius: 9px;
+		border-radius: 6px;
 		opacity: 0.95;
-		background-color: alpha(#14141e, 0.9);
+		background-color: alpha(#000000, 0.9);
+		box-shadow: 0px 2px 1px #aa0707;
 		margin: 3px 1px 3px 1px;
 		padding: 1px 2px 1px;
 	}
 
     .modules-right {
 		color: #ffffff;
-		border-radius: 9px;
+		border-radius: 6px;
 		opacity: 0.95;
-		background-color: alpha(#14141e, 0.9);
+		background-color: alpha(#000000, 0.9);
+		box-shadow: 0px 2px 1px #aa0707;
 		margin: 3px 1px 3px 1px;
 		padding: 1px 2px 1px;
     }
@@ -59,8 +62,9 @@
     	/* === Workspaces === */
 
     #workspaces {
-		border-radius: 9px;
-		background-color: alpha(#14141e, 0.9);
+		border-radius: 6px;
+		background-color: alpha(#000000, 0.9);
+		box-shadow: 0px 2px 1px #aa0707;
 		opacity: 0.95;
 		margin: 3px 1px;
 		padding: 2px 4px 2px;
@@ -70,9 +74,9 @@
 		padding: 0px 6px;
 		margin: 1px 2px;
 		border-radius: 2px;
-		background-color: alpha(#6b6b6c, 0.5);
+		background-color: alpha(#444444, 0.5);
 		color: #ffffff; 
-		transition: all 0.3s ease-in-out;
+		transition: all 0.4s ease-in-out;
 		opacity: 0.95;
     }
 
@@ -81,12 +85,13 @@
 		border: 1px solid alpha(#ff0101, 0.8);
 		background-color: alpha(#14141e, 0.9);
 		border-radius: 2px;
-		opacity: 1.0;
-		transition: all 0.3s ease-in-out;
+		opacity: 0.9;
+		background: linear-gradient(180deg, #14141e 75%, #c00707);
+		transition: all 0.4s ease-in-out;
     }
 
     #workspaces button:hover {
-		color: #3e4149;
+		color: #7984a4;
 		border-radius: 2px;
 		opacity: 0.9;
 		background: linear-gradient(180deg, #14141e 75%, #c00707);
@@ -153,7 +158,6 @@
 		margin-right: 5px;
 		opacity: 0.9;
     }
-	#custom-weather:hover,
 	#temperature:hover,
 
 		/* === Left Modules === */
@@ -167,7 +171,7 @@
     }
 	#custom-updates {
         background-color: transparent;
-        color: #268b01;
+        color: #4f9b34;
         font-weight: bold;
         padding: 0 10px;
     }
@@ -216,7 +220,7 @@
     }
     
     #custom-notification-silencing.active {
-		color: #a55555;
+		color: #da2d2d;
     }
 	
     #tooltip {
@@ -246,17 +250,17 @@
 	}
 
 	#custom-updates.updated {
-    	color: #a6e3a1; 
+    	color: #48ed39; 
 	}
 
 	/* === Battery Animation Module === */
     #battery.warning {
-		color: #db331d;
+		color: #ec280e;
     }
 
     @keyframes blink2 {
 		to {
-    		color: #f53c3c;
+    		color: #750d0d;
   		}	
 	}
 
