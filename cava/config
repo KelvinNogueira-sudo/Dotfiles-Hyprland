@@ -5,10 +5,10 @@
 [general]
 
 # Auto reload config if the configuration file has changed. 1 = on, 0 = off.
-; live-config = 0
+  live-config = 1
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
-; mode = normal
+  mode = normal
 
 # Accepts only non-negative values.
 ; framerate = 60
@@ -29,11 +29,11 @@
 ; bar_width = 2
 ; bar_spacing = 1
 # bar_height is only used for output in "noritake" format
-; bar_height = 32
+  bar_height = 20
 
 # For SDL width and space between bars is in pixels, defaults are:
 ; bar_width = 20
-; bar_spacing = 5
+  bar_spacing = 1
 
 # sdl_glsl have these default values, they are only used to calculate max number of bars.
 ; bar_width = 1
@@ -43,7 +43,7 @@
 ; center_align = 1
 
 # max height of bars in terminal, in percent of terminal height.
-; max_height = 100
+  max_height = 80
 
 
 # Lower and higher cutoff frequencies for lowest and highest bars
@@ -288,7 +288,7 @@
 
 # use theme file instead of defining colors in this file
 # themes are located in $HOME/.config/cava/themes
-; theme = 'none'
+  theme = 'custom_theme'
 
 
 [smoothing]
