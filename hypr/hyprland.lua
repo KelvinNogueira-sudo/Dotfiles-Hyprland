@@ -139,6 +139,9 @@ hl.curve("workspaceBounce",{ type = "bezier", points = { {0.20, 0.86}, {0.30, 1.
 -- Springs
 
 hl.curve("easy",    { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+hl.curve("winIn", { type = "spring", mass = 1, stiffness = 350, dampening = 35 })
+hl.curve("winOut", { type = "spring", mass = 1, stiffness = 320, dampening = 32 })
+hl.curve("winMove", { type = "spring", mass = 1, stiffness = 300, dampening = 30 })
 
 -- Animations
 
