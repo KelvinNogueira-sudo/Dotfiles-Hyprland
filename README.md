@@ -15,5 +15,4 @@ My configurations for Hyprland and Ricing on my ArchLinux (btw)
 ![Image4](https://github.com/KelvinNogueira-sudo/Dotfiles-Hyprland/blob/main/Screenshots/2026-08-20-143545_hyprshot.png)
 
 ## To-do:
-- [ ] Add Wlogout and login animations
 - [ ] Config Shell (zsh 5.9)
