@@ -145,9 +145,9 @@ hl.curve("winMove", { type = "spring", mass = 1, stiffness = 300, dampening = 30
 
 -- Animations
 
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, spring = "winIn", style = "popin 85%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, spring = "winOut", style = "popin 85%" })
-hl.animation({ leaf = "windowsMove", enabled = true, speed = 3, spring = "winMove", style = "slide" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 2, spring = "winIn", style = "popin 80%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2, spring = "winOut", style = "popin 80%" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 2, spring = "winMove", style = "slide" })
 
 hl.animation({ leaf = "fade",          enabled = true,  speed = 3.03, bezier = "quick" })
 hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 1.73, bezier = "almostLinear" })
@@ -273,8 +273,8 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl s 5%+"),                            { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl s 5%-"),                            { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl s 1%+"),                            { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl s 1%-"),                            { locked = true, repeating = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
@@ -298,8 +298,9 @@ local suppressMaximizeRule = hl.window_rule({
 })
 -- suppressMaximizeRule:set_enabled(false)
 
-hl.window_rule({ match = { class = "code" }, opacity = "0.80" })
-hl.window_rule({ match = { class = "thunar"}, opacity = "0.80" })
-hl.window_rule({ match = { class = "brave-browser" }, opacity = "0.95" })
+hl.window_rule({ match = { class = "code" },                            opacity = "0.80" })
+hl.window_rule({ match = { class = "thunar" },                          opacity = "0.80" })
+hl.window_rule({ match = { class = "brave-browser" },                   opacity = "0.92" })
+hl.window_rule({ match = { class = "org.prismlauncher.PrismLauncher" }, opacity = "0.80" })
 hl.window_rule({ match = { class = "^$", title = "^$", xwayland = true, float = true, fullscreen = false, pin = false }, no_focus = true })
-hl.window_rule({ match = { class = "hyprland-run" }, move = "20 monitor_h-120", float = true })
+hl.window_rule({ match = { class = "hyprland-run" },   move = "20 monitor_h-120", float = true })

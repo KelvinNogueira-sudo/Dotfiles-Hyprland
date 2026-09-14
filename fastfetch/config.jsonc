@@ -108,6 +108,12 @@
     "keyColor": "black"
     },
     {
+      "type": "command",
+      "key": "",
+      "keyColor": "black",
+      "text": "birth_install=$(stat -c %W /); current=$(date +%s); days_difference=$(( (current - birth_install) / 86400 )); echo $days_difference days"
+    },
+    {
       "type": "custom",
       "format": "{#90}└{$1}──────────{$1}┘{#}"
     },

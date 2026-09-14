@@ -1,8 +1,8 @@
 * {
 		/* === Global-Settings === */
 
-    font-family: 'JetBrainsMono Nerd Font';
-    font-size: 15px;
+    font-family: 'FiraCode Nerd Font';
+    font-size: 16px;
     font-weight: normal;
     min-height: 0px;
 }
@@ -30,6 +30,15 @@
 
 	#left1 {
   		border-radius: 6px;
+  		opacity: 0.95;
+ 		background-color: alpha(#000000, 0.9);
+		box-shadow: 0px 2px 1px #aa0707;
+  		margin: 3px 1px 3px 1px;
+		padding: 1px 2px 1px;
+	}
+
+	#left3 {
+		border-radius: 6px;
   		opacity: 0.95;
  		background-color: alpha(#000000, 0.9);
 		box-shadow: 0px 2px 1px #aa0707;
@@ -140,7 +149,7 @@
 	#backlight:hover,
 	#battery {
 		min-width: 20px;
-		margin-left: 3px;
+		margin-left: 5px;
 		margin-right: 3px;
 		font-size: 16px;
 		padding-bottom: 0px;
@@ -148,14 +157,14 @@
 	#power-profiles-daemon {
 		min-width: 20px;
 		margin-left: 3px;
-		margin-right: 3px;
+		margin-right: 5px;
 		font-size: 18px;
 		padding-bottom: 0px;
     }
 	#pulseaudio:hover {
 		border-radius: 2px;
-		margin-left: 5px;
-		margin-right: 5px;
+		margin-left: 0px;
+		margin-right: 9px;
 		opacity: 0.9;
     }
 	#temperature:hover,
@@ -194,27 +203,6 @@
 		padding: 1px 2px 1px;
 	}
 
-		/* === Specific Modules === */
-	/* -> Remove me to descomment this block
-    #group-tray-expander {
-		background-color: alpha(@background, 0.9);
-		color: @foreground;
-    }
-		
-   	#tray {
-		background-color: @background;
-    }
-
-    #tray > .passive {
-		-gtk-icon-effect: dim;
-    }
-
-    #tray > .needs-attention {
-		-gtk-icon-effect: highlight;
-		background-color: @transparent;
-    }
-	Remove me to descomment this block -> */
-
     .hidden {
 		opacity: 0;
     }
@@ -238,15 +226,16 @@
 	/* === Specific animation Module === */
 
 	/* Update Animation Module*/
+
+	@keyframes blink {
+		to {
+			opacity: 0.5;
+		}
+	}
+
     #custom-updates.has-updates {
     	color: #db331d;
     	animation: blink 2s infinite;
-	}
-
-	@keyframes blink {
-    	to {
-        	opacity: 0.5;
-    	}
 	}
 
 	#custom-updates.updated {
@@ -254,21 +243,15 @@
 	}
 
 	/* === Battery Animation Module === */
-    #battery.warning {
-		color: #ec280e;
-    }
 
-    @keyframes blink2 {
+	@keyframes blink2 {
 		to {
-    		color: #750d0d;
-  		}	
+			color: #750d0d;
+		  }	
 	}
 
-    #battery.critical:not(.charging) {
-		color: #fa4300;
-		animation-name: blink2;
-		animation-duration: 0.5s;
-		animation-timing-function: steps(12);
-		animation-iteration-count: infinite;
-		animation-direction: alternate;
+    #battery.warning {
+		color: #ec280e;
+		background-color: transparent;
+		animation: blink2 2s infinite;
     }
